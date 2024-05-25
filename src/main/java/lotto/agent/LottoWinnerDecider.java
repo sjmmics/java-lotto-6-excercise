@@ -1,4 +1,8 @@
-package lotto;
+package lotto.agent;
+
+import lotto.function.InputValidator;
+import lotto.function.LottoViewer;
+import lotto.domain.Lotto;
 
 public class LottoWinnerDecider {
     private final LottoViewer viewer;

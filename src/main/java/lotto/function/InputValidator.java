@@ -1,6 +1,7 @@
-package lotto;
+package lotto.function;
 
 import camp.nextstep.edu.missionutils.Console;
+import lotto.domain.Lotto;
 
 import java.util.*;
 

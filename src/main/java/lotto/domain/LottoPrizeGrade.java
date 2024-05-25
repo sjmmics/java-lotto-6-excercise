@@ -1,4 +1,4 @@
-package lotto;
+package lotto.domain;
 
 public enum LottoPrizeGrade {
     WIN_GRADE_NOTING(0, ""),

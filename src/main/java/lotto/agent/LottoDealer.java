@@ -1,6 +1,9 @@
-package lotto;
+package lotto.agent;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import lotto.function.InputValidator;
+import lotto.domain.Lotto;
+import lotto.function.LottoViewer;
 
 import java.util.ArrayList;
 import java.util.Collections;

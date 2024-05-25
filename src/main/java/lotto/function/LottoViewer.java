@@ -1,4 +1,7 @@
-package lotto;
+package lotto.function;
+
+import lotto.domain.LottoWinResult;
+import lotto.domain.Lotto;
 
 import java.util.List;
 
@@ -26,7 +29,7 @@ public class LottoViewer {
     }
 
     public void showResult(LottoWinResult result) {
-
+        System.out.println();
         System.out.println("당첨 통계");
         System.out.println("---");
         System.out.println(result);

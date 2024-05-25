@@ -1,4 +1,9 @@
-package lotto;
+package lotto.configuration;
+
+import lotto.function.InputValidator;
+import lotto.function.LottoViewer;
+import lotto.agent.LottoWinnerDecider;
+import lotto.agent.LottoDealer;
 
 public class Config {
     public LottoDealer lottoDealer() {
