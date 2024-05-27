@@ -44,8 +44,8 @@ public class InputValidator {
                 String inputString = Console.readLine();
                 validateAllDigitOrComma(inputString);
                 List<Integer> inputList = changeStringInputToList(inputString);
-                validateNumberCount(inputList);
-                validateDuplicateNumber(inputList);
+                validateDigitLottoNumber(inputList);
+                validateDuplicateNumberInLotto(inputList);
                 validateAllNumberInRightRange(inputList);
                 return inputList;
             } catch (IllegalArgumentException e) {
@@ -74,14 +74,14 @@ public class InputValidator {
         return list;
     }
 
-    private void validateNumberCount(List<Integer> inputList) {
+    private void validateDigitLottoNumber(List<Integer> inputList) {
         if (inputList.size() != 6) {
             throw new IllegalArgumentException("[ERROR] " +
                     "숫자를 6개 입력하세요.");
         }
     }
 
-    private void validateDuplicateNumber(List<Integer> inputList) {
+    private void validateDuplicateNumberInLotto(List<Integer> inputList) {
         HashSet<Integer> set = new HashSet<>(inputList);
         if (inputList.size() != set.size()) {
             throw new IllegalArgumentException("[ERROR] " +
@@ -106,7 +106,7 @@ public class InputValidator {
                 int bonusNumber =
                         Integer.parseInt(inputBonusNumberString);
                 isNumberInRange(bonusNumber);
-                isDuplicateWinLottoNumber(bonusNumber, winLotto);
+                isDuplicateWinLottoAndBonusNumber(bonusNumber, winLotto);
                 return bonusNumber;
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
@@ -114,8 +114,8 @@ public class InputValidator {
         }
     }
 
-    private void isDuplicateWinLottoNumber(int bonusNumber,
-                                           Lotto winLotto) {
+    private void isDuplicateWinLottoAndBonusNumber(int bonusNumber,
+                                                   Lotto winLotto) {
         List<Integer> winLottoNumbers = winLotto.getNumbers();
         for (int number : winLottoNumbers) {
             if (number == bonusNumber) {

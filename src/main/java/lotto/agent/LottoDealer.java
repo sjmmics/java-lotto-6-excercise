@@ -18,7 +18,7 @@ public class LottoDealer {
         this.viewer = viewer;
     }
 
-    public int setNumberBuyLotto() {
+    public int setNumberBuyToLottoTicket() {
         viewer.enterMoneyToSpend();
         return inputValidator.setProperInputMoneyToBuyLotto() / 1_000;
     }
@@ -29,8 +29,7 @@ public class LottoDealer {
         for (int i = 0; i < numberBuyLotto; i++) {
             List<Integer> randomLottoNumberlist =
                     Randoms.pickUniqueNumbersInRange(1, 45, 6);
-            List<Integer> toSortList = new ArrayList<>();
-            toSortList.addAll(randomLottoNumberlist);
+            List<Integer> toSortList = new ArrayList<>(randomLottoNumberlist);
             Collections.sort(toSortList);
             buyLottoTickets.add(new Lotto(toSortList));
         }

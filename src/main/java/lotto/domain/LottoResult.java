@@ -4,17 +4,17 @@ import java.text.DecimalFormat;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-public class LottoWinResult {
+public class LottoResult {
     private final LinkedHashMap<LottoPrizeGrade, Integer> winnerMap;
     private final int numberLottoTicket;
 
-    public LottoWinResult(Lotto winLotto, List<Lotto> buyLottoTickets, int bonusLottoNumber) {
-        numberLottoTicket = buyLottoTickets.size();
+    public LottoResult(Lotto winningLotto, List<Lotto> buyLottoList, int bonusLottoNumber) {
+        numberLottoTicket = buyLottoList.size();
         winnerMap = new LinkedHashMap<>();
         int[] countWinnerPerPrize = new int[6];
-        for (Lotto buyLotto : buyLottoTickets) {
+        for (Lotto buyLotto : buyLottoList) {
             int prizeNumber =
-                    getPrizeGradeNumber(buyLotto, winLotto, bonusLottoNumber);
+                    getPrizeGradeNumber(buyLotto, winningLotto, bonusLottoNumber);
             countWinnerPerPrize[prizeNumber]++;
         }
         for (int i = 1; i < 6; i++) {
@@ -23,11 +23,13 @@ public class LottoWinResult {
         }
     }
 
-    private int getPrizeGradeNumber(Lotto buyLotto, Lotto winLotto, int bonusLottoNumber) {
+    private int getPrizeGradeNumber(Lotto buyLotto,
+                                    Lotto winningLotto,
+                                    int bonusLottoNumber) {
         int countMatchLotto = 0;
         int countMatchBonus = 0;
         for (int num : buyLotto.getNumbers()) {
-            if (winLotto.getNumbers().contains(num)) {
+            if (winningLotto.getNumbers().contains(num)) {
                 countMatchLotto++;
             }
             if (bonusLottoNumber == num) {

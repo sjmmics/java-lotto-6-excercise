@@ -1,10 +1,10 @@
 package lotto;
 
 import lotto.agent.LottoDealer;
-import lotto.agent.LottoWinnerDecider;
+import lotto.agent.LottoWinningNumberDecider;
 import lotto.configuration.Config;
 import lotto.domain.Lotto;
-import lotto.domain.LottoWinResult;
+import lotto.domain.LottoResult;
 import lotto.function.LottoViewer;
 
 import java.util.List;
@@ -12,16 +12,16 @@ import java.util.List;
 public class LottoPresenter {
     private static LottoDealer lottoDealer;
     private static LottoViewer viewer;
-    private static LottoWinnerDecider lottoWinnerDecider;
+    private static LottoWinningNumberDecider lottoWinningNumberDecider;
 
     public void run() {
         setConfig();
-        int numberBuyLotto = lottoDealer.setNumberBuyLotto();
+        int numberBuyLotto = lottoDealer.setNumberBuyToLottoTicket();
         List<Lotto> buyLottoTickets = lottoDealer.setBuyLottoTickets(numberBuyLotto);
-        Lotto winnerLotto = lottoWinnerDecider.setWinnerLotto();
-        int bonusLottoNumber = lottoWinnerDecider.setBonusLottoNumber(winnerLotto);
-        LottoWinResult result =
-                new LottoWinResult(winnerLotto, buyLottoTickets, bonusLottoNumber);
+        Lotto winnerLotto = lottoWinningNumberDecider.setWinningLottoNumber();
+        int bonusLottoNumber = lottoWinningNumberDecider.setBonusLottoNumber(winnerLotto);
+        LottoResult result =
+                new LottoResult(winnerLotto, buyLottoTickets, bonusLottoNumber);
         viewer.showResult(result);
     }
 
@@ -29,7 +29,7 @@ public class LottoPresenter {
         Config config = new Config();
         viewer = config.lottoViewer();
         lottoDealer = config.lottoDealer();
-        lottoWinnerDecider = config.lottoWinnerDecider();
+        lottoWinningNumberDecider = config.lottoWinningNumberDecider();
     }
 
 

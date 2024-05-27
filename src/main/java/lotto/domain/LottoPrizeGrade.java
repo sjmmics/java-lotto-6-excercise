@@ -17,7 +17,8 @@ public enum LottoPrizeGrade {
         this.winCondition = winCondition;
     }
 
-    public static LottoPrizeGrade getLottoPrizeGrade(int countMatchLotto, int countMatchBonus) {
+    public static LottoPrizeGrade getLottoPrizeGrade(int countMatchLotto,
+                                                     int countMatchBonus) {
         if (countMatchLotto == 6) {
             return LottoPrizeGrade.WIN_GRADE_1ST;
         }

@@ -1,6 +1,6 @@
 package lotto.function;
 
-import lotto.domain.LottoWinResult;
+import lotto.domain.LottoResult;
 import lotto.domain.Lotto;
 
 import java.util.List;
@@ -18,7 +18,7 @@ public class LottoViewer {
         }
     }
 
-    public void enterWinLottoNumber() {
+    public void enterWinningLottoNumber() {
         System.out.println();
         System.out.println("당첨 번호를 입력해주세요.");
     }
@@ -28,7 +28,7 @@ public class LottoViewer {
         System.out.println("보너스 번호를 입력해주세요.");
     }
 
-    public void showResult(LottoWinResult result) {
+    public void showResult(LottoResult result) {
         System.out.println();
         System.out.println("당첨 통계");
         System.out.println("---");

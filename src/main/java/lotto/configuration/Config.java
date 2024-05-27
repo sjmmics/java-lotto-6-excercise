@@ -2,7 +2,7 @@ package lotto.configuration;
 
 import lotto.function.InputValidator;
 import lotto.function.LottoViewer;
-import lotto.agent.LottoWinnerDecider;
+import lotto.agent.LottoWinningNumberDecider;
 import lotto.agent.LottoDealer;
 
 public class Config {
@@ -18,7 +18,7 @@ public class Config {
         return new InputValidator();
     }
 
-    public LottoWinnerDecider lottoWinnerDecider() {
-        return new LottoWinnerDecider(lottoViewer(), validator());
+    public LottoWinningNumberDecider lottoWinningNumberDecider() {
+        return new LottoWinningNumberDecider(lottoViewer(), validator());
     }
 }
