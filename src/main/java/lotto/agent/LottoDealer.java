@@ -1,7 +1,7 @@
 package lotto.agent;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import lotto.function.InputValidator;
+import lotto.function.InputHandler;
 import lotto.domain.Lotto;
 import lotto.function.LottoViewer;
 
@@ -10,19 +10,18 @@ import java.util.Collections;
 import java.util.List;
 
 public class LottoDealer {
-    private final InputValidator inputValidator;
+    private final InputHandler inputHandler;
     private final LottoViewer viewer;
 
-    public LottoDealer(InputValidator inputValidator, LottoViewer viewer) {
-        this.inputValidator = inputValidator;
+    public LottoDealer(InputHandler inputHandler, LottoViewer viewer) {
+        this.inputHandler = inputHandler;
         this.viewer = viewer;
     }
 
     public int setNumberBuyToLottoTicket() {
         viewer.enterMoneyToSpend();
-        return inputValidator.setProperInputMoneyToBuyLotto() / 1_000;
+        return inputHandler.setMoneyToBuyLotto() / 1_000;
     }
-
 
     public List<Lotto> setBuyLottoTickets(int numberBuyLotto) {
         List<Lotto> buyLottoTickets = new ArrayList<>();

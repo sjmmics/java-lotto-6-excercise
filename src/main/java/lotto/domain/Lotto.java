@@ -6,9 +6,19 @@ import java.util.List;
 public class Lotto {
     private final List<Integer> numbers;
 
+    private LottoPrizeGrade grade;
+
     public Lotto(List<Integer> numbers) {
         validate(numbers);
         this.numbers = numbers;
+    }
+
+    public void setGrade(LottoPrizeGrade grade) {
+        this.grade = grade;
+    }
+
+    public LottoPrizeGrade getGrade() {
+        return grade;
     }
 
     private void validate(List<Integer> numbers) {
@@ -23,6 +33,7 @@ public class Lotto {
     }
 
     // TODO: 추가 기능 구현
+
 
     public List<Integer> getNumbers() {
         return this.numbers;

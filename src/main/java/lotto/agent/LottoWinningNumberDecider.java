@@ -1,26 +1,29 @@
 package lotto.agent;
 
-import lotto.function.InputValidator;
+import lotto.domain.WinningLotto;
+import lotto.function.InputHandler;
 import lotto.function.LottoViewer;
-import lotto.domain.Lotto;
+
+import java.util.List;
 
 public class LottoWinningNumberDecider {
     private final LottoViewer viewer;
-    private final InputValidator inputValidator;
+    private final InputHandler inputHandler;
 
     public LottoWinningNumberDecider(LottoViewer viewer,
-                                     InputValidator inputValidator) {
+                                     InputHandler inputHandler) {
         this.viewer = viewer;
-        this.inputValidator = inputValidator;
+        this.inputHandler = inputHandler;
     }
 
-    public Lotto setWinningLottoNumber() {
+    public WinningLotto setWinningLotto() {
         viewer.enterWinningLottoNumber();
-        return new Lotto(inputValidator.setProperLottoInput());
-    }
-
-    public int setBonusLottoNumber(Lotto winLotto) {
+        WinningLotto winningLotto = new WinningLotto();
+        List<Integer> winningLottoMainNumber = inputHandler.setLottoInput();
+        winningLotto.setNumbers(winningLottoMainNumber);
         viewer.enterBonusNumber();
-        return inputValidator.setBonusLottoNumber(winLotto);
+        Integer bonusNumber = inputHandler.setBonusLottoNumber(winningLotto);
+        winningLotto.setBonusNumber(bonusNumber);
+        return winningLotto;
     }
 }
